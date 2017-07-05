@@ -55,9 +55,22 @@ namespace AutoFramework.Prozyle
 		{
 			get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/compose/ul/li[1]/a")); }
 		}
+
+		//Add Property page
 		public IWebElement ChecklistHeader
 		{
 			get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div[2]/div[1]/h4")); }
 		}
+		public IWebElement ReqTitleMessage { get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/div/div[1]/div[1]/div/div/div[1]/span")); } }
+		public IWebElement ReqHolderNameMessage { get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/div/div[1]/div[1]/div/div/div[2]/span")); } }
+		public IWebElement ReqTypeMessage { get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/div/div[1]/div[1]/div/div/div[3]/span")); } }
+		public IWebElement ReqAddressMessage { get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/div/div[1]/div[2]/div/div/dl[1]/span")); } }
+		public IWebElement ReqCityMessage { get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/div/div[1]/div[2]/div/div/dl[3]/span")); } }
+		public IWebElement ReqPinCodeMessage { get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/div/div[1]/div[2]/div/div/dl[4]/span")); } }
+		public IWebElement ReqValidPinCodeMessage { get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/div/div[1]/div[2]/div/div/dl[4]/span")); } }
+		public IWebElement ReqStateMessage { get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/div/div[1]/div[2]/div/div/div/span")); } }
+		public IWebElement ReqMaxContactNumberMessage { get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/div/div[2]/div[2]/div/div/dl[2]/dd/div/span")); } }
+		public IWebElement ReqValidContactNumberMessage { get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/div/div[2]/div[2]/div/div/dl[2]/dd/div/span")); } }
+		
 	}
 }

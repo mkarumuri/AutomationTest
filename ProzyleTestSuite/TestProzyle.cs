@@ -95,17 +95,17 @@ namespace ProzyleTestSuite
 		/// <summary>
 		/// Test to Register user
 		/// </summary>
-		[Test]
-		public void TestRegistration()
-		{
-			WebTest((driver) =>
-			{
-				var homePage = new PZHomePage(driver);
+		//[Test]
+		//public void TestRegistration()
+		//{
+		//	WebTest((driver) =>
+		//	{
+		//		var homePage = new PZHomePage(driver);
 
-				driver.GoToProzyleRegister("wpweb/#/user-registration", "Test", "Test", "spmamidi@gmail.com", "spmamidi@gmail.com", "Pr0zy!eTest", "Pr0zy!eTest", "United states", "5129219933");
-				Assert.IsTrue(homePage.Title().Displayed);
-			});
-		}
+		//		driver.GoToProzyleRegister("wpweb/#/user-registration", "Test", "Test", "spmamidi@gmail.com", "spmamidi@gmail.com", "Pr0zy!eTest", "Pr0zy!eTest", "United states", "5129219933");
+		//		Assert.IsTrue(homePage.Title().Displayed);
+		//	});
+		//}
 
 		[Test]
 		public void TestAddProperty()
@@ -118,11 +118,46 @@ namespace ProzyleTestSuite
 				driver.GoToAddProperty("/wpweb/#/customer-landing-page");
 				Assert.AreEqual("ADD PROPERTY", homePage.AddPropertyTabTitle.Text, "Add Property Tab Title do not match");
 
-				driver.GoToAddPropertyDetails("/wpweb/#/addproperty","Home","Test","Land","Test","","Test","4444","Telangana","","","","Test","123456789012");
+				CheckAddPropertyValidations(driver, homePage);
+
+				driver.GoToAddPropertyDetails("/wpweb/#/addproperty", "Home", "Test", "Land", "Test", "", "Test", "4444", "Telangana", "", "", "", "Test", "123456789012");
 				Assert.AreEqual("Land -- BASIC - 500 INR , ADDITIONALLY EACH ADD ONS COSTS 50 INR.", homePage.ChecklistHeader.Text, "Checklist Tab Title do not match");
 
 				TestLogout(driver, homePage);
 			}); 
+		}
+
+		private static void CheckAddPropertyValidations(OpenQA.Selenium.IWebDriver driver, PZHomePage homePage)
+		{
+			driver.GoToAddPropertyDetails("/wpweb/#/addproperty", "", "Test", "Land", "Test", "", "Test", "4444", "Telangana", "", "", "", "Test", "123456789012");
+			Assert.AreEqual("This information is required", homePage.ReqTitleMessage.Text, "Title should not be empty - Failed");
+
+			driver.GoToAddPropertyDetails("/wpweb/#/addproperty", "Test", "", "Land", "Test", "", "Test", "4444", "Telangana", "", "", "", "Test", "123456789012");
+			Assert.AreEqual("This information is required", homePage.ReqHolderNameMessage.Text, "Holder Name should not be empty - Failed");
+
+			driver.GoToAddPropertyDetails("/wpweb/#/addproperty", "Test", "Test", "", "Test", "", "Test", "4444", "Telangana", "", "", "", "Test", "123456789012");
+			Assert.AreEqual("This information is required", homePage.ReqTypeMessage.Text, "Property Type should not be empty - Failed");
+
+			driver.GoToAddPropertyDetails("/wpweb/#/addproperty", "Test", "Test", "Land", "", "", "Test", "4444", "Telangana", "", "", "", "Test", "123456789012");
+			Assert.AreEqual("This information is required", homePage.ReqAddressMessage.Text, "Address1 should not be empty - Failed");
+
+			driver.GoToAddPropertyDetails("/wpweb/#/addproperty", "Test", "Test", "Land", "Test", "", "", "4444", "Telangana", "", "", "", "Test", "123456789012");
+			Assert.AreEqual("This information is required", homePage.ReqCityMessage.Text, "City should not be empty - Failed");
+
+			driver.GoToAddPropertyDetails("/wpweb/#/addproperty", "Test", "Test", "Land", "Test", "", "Test", "", "Telangana", "", "", "", "Test", "123456789012");
+			Assert.AreEqual("This information is required", homePage.ReqPinCodeMessage.Text, "PinCode should not be empty - Failed");
+
+			driver.GoToAddPropertyDetails("/wpweb/#/addproperty", "Test", "Test", "Land", "Test", "", "Test", "Test", "Telangana", "", "", "", "Test", "123456789012");
+			Assert.AreEqual("Enter Valid pincode", homePage.ReqValidPinCodeMessage.Text, "PinCode is not Valid - Failed");
+
+			driver.GoToAddPropertyDetails("/wpweb/#/addproperty", "Test", "Test", "Land", "Test", "", "Test", "4444", "", "", "", "", "Test", "123456789012");
+			Assert.AreEqual("This information is required", homePage.ReqStateMessage.Text, "State should not be empty - Failed");
+
+			driver.GoToAddPropertyDetails("/wpweb/#/addproperty", "Test", "Test", "Land", "Test", "", "Test", "4444", "Telangana", "", "", "", "Test", "1234567890123");
+			Assert.AreEqual("Mobile Number(maximum 12 characters)", homePage.ReqMaxContactNumberMessage.Text, "State should not be empty - Failed");
+
+			driver.GoToAddPropertyDetails("/wpweb/#/addproperty", "Test", "Test", "Land", "Test", "", "Test", "4444", "Telangana", "", "", "", "Test", "test");
+			Assert.AreEqual("Enter Valid Mobile Number", homePage.ReqValidContactNumberMessage.Text, "Number is not Valid - Failed");
 		}
 	}
 }
