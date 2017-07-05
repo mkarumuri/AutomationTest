@@ -7,9 +7,7 @@ namespace AutoFramework.Prozyle
 	public class PZHomePage : BasePage
 	{
 		public PZHomePage(IWebDriver driver) : base(driver) { }
-		public PZHomePage(IWebDriver driver, string suiteName) : base(driver) { }
 
-		//    //*[@id="content"]/div/div/div/div/div/div/div/div[1]/h2
 		public IWebElement Title()
 		{
 			return Driver.FindElement(By.XPath("//*[@id='content']/div/div/div/div/div/div/div/div[1]/h2"));

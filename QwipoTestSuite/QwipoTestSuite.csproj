@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5750128B-210D-495F-A9C4-D6BA230374C2}</ProjectGuid>
+    <ProjectGuid>{6558862B-F4C0-455C-A2A8-F4055D999258}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AutoFramework</RootNamespace>
-    <AssemblyName>AutoFramework</AssemblyName>
+    <RootNamespace>QwipoTestSuite</RootNamespace>
+    <AssemblyName>QwipoTestSuite</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -38,13 +38,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="WebDriver, Version=3.4.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -55,33 +54,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\BasePage.cs" />
-    <Compile Include="Base\TestBase.cs" />
-    <Compile Include="Common\HomePage.cs" />
-    <Compile Include="Helpers\AppConfig.cs" />
-    <Compile Include="Helpers\IWebDriverExtensions.cs" />
-    <Compile Include="Helpers\ProzyleWDExtensions.cs" />
-    <Compile Include="Helpers\TDConstants.cs" />
-    <Compile Include="Helpers\TimingHelper.cs" />
-    <Compile Include="Helpers\XavConstants.cs" />
-    <Compile Include="Helpers\XavWDExtensions.cs" />
-    <Compile Include="Prozyle\PZHomePage.cs" />
-    <Compile Include="Prozyle\PZLoginPage.cs" />
-    <Compile Include="Qwipo\QwipoHomePage.cs" />
-    <Compile Include="TodayDiscounts\TDHomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Xavica\XavHomePage.cs" />
+    <Compile Include="TestQwipo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Drivers\chromedriver.exe" />
-    <Content Include="Drivers\geckodriver.exe" />
-    <Content Include="Drivers\IEDriverServer.exe" />
+    <ProjectReference Include="..\AutoFramework\AutoFramework.csproj">
+      <Project>{5750128B-210D-495F-A9C4-D6BA230374C2}</Project>
+      <Name>AutoFramework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

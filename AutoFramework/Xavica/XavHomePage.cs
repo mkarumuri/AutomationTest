@@ -4,9 +4,9 @@ using OpenQA.Selenium;
 
 namespace AutoFramework.Xavica
 {
-	public class HomePage : BasePage
+	public class XavHomePage : BasePage
 	{
-		public HomePage(IWebDriver driver) : base(driver) { }
+		public XavHomePage(IWebDriver driver) : base(driver) { }
 
 		public IWebElement Title()
 		{
@@ -17,12 +17,12 @@ namespace AutoFramework.Xavica
 			return Driver.FindElement(By.XPath("//*[@id='page - container']/div[2]/div/div/div[1]/div/div/div/div[1]/h1/a"));
 		}
 
-		public HomePage ClickTwitter()
+		public XavHomePage ClickTwitter()
 		{
 			var elem = Driver.FindElement(By.XPath("//*[@id='contact']/div/div[2]/ul/li[4]/a"));
 			Driver.MoveMouseTo(elem);
 			elem.Click();
-			return new HomePage(Driver);
+			return new XavHomePage(Driver);
 		}
 	}
 }

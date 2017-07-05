@@ -17,10 +17,10 @@ namespace AutoFramework.Base
 {
 	public abstract class TestBase
 	{
-		protected void WebTest(Action<IWebDriver> test, string userAgentOverride)
+		protected void WebTest(Action<IWebDriver> test, string suiteName, string userAgentOverride)
 		{
 			var testTime = Stopwatch.StartNew();
-			using (var driver = GetWebDriver(userAgentOverride))
+			using (var driver = GetWebDriver(userAgentOverride, suiteName))
 			{
 				Console.WriteLine("...elapsed time: {0}", testTime.Elapsed);
 				try
@@ -53,10 +53,14 @@ namespace AutoFramework.Base
 		{
 			WebTest(test, null);
 		}
-		private IWebDriver GetWebDriver(string userAgentOverride)
+		protected void WebTest(Action<IWebDriver> test, string suiteName)
+		{
+			WebTest(test, suiteName, null);
+		}
+		private IWebDriver GetWebDriver(string userAgentOverride, string suiteName)
 		{
 			var pth = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
-			var actualPath = pth.Substring(0, pth.LastIndexOf("ProzyleTestSuite"));
+			var actualPath = pth.Substring(0, pth.LastIndexOf(suiteName));
 			var projectPath = new Uri(actualPath).LocalPath;
 			var DriverPath = Path.GetFullPath(Path.Combine(projectPath, @".\AutoFramework\Drivers\"));
 			var selectedBrowser = AppConfig.WebDriver;

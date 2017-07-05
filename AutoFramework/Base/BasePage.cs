@@ -12,5 +12,10 @@ namespace AutoFramework.Base
 			Driver = driver;
 			PageFactory.InitElements(Driver, this);
 		}
+		public BasePage(IWebDriver driver,string suiteName)
+		{
+			Driver = driver;
+			PageFactory.InitElements(Driver, this);
+		}
 	}
 }

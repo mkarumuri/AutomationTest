@@ -13,12 +13,19 @@ namespace ProzyleTestSuite
 		[Test]
 		public void TestHomePage()
 		{
+			//WebTest((driver) =>
+			//{
+			//	var homePage = new PZHomePage(driver);
+			//	CheckValidations(driver, homePage);
+			//	TestLogin(driver, homePage);
+			//});
 			WebTest((driver) =>
 			{
 				var homePage = new PZHomePage(driver);
 				CheckValidations(driver, homePage);
 				TestLogin(driver, homePage);
-			});
+				TestLogout(driver, homePage);
+			}, "ProzyleTestSuite");
 		}
 
 		private static void TestLogin(OpenQA.Selenium.IWebDriver driver, PZHomePage homePage)
@@ -124,7 +131,7 @@ namespace ProzyleTestSuite
 				Assert.AreEqual("Land -- BASIC - 500 INR , ADDITIONALLY EACH ADD ONS COSTS 50 INR.", homePage.ChecklistHeader.Text, "Checklist Tab Title do not match");
 
 				TestLogout(driver, homePage);
-			}); 
+			});
 		}
 
 		private static void CheckAddPropertyValidations(OpenQA.Selenium.IWebDriver driver, PZHomePage homePage)

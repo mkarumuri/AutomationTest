@@ -28,7 +28,7 @@ namespace AutoTestSuite
 		{
 			WebTest((driver) =>
 			{
-				var homePage = new HomePage(driver);
+				var homePage = new XavHomePage(driver);
 
 				driver.GoToHome();
 				Assert.IsTrue(homePage.Title().Displayed);
@@ -43,7 +43,7 @@ namespace AutoTestSuite
 		{
 			WebTest((driver) =>
 				{
-					var homePage = new HomePage(driver);
+					var homePage = new XavHomePage(driver);
 
 					driver.GoToHome();
 					driver.GoToContact();

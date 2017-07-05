@@ -25,7 +25,7 @@ namespace AutoFramework.Helpers
 		{
 			get
 			{
-				return ConfigurationManager.AppSettings["testPassword"];
+				return ConfigurationManager.AppSettings["ProzylePassword"];
 			}
 		}
 		

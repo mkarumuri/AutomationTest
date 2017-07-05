@@ -11,7 +11,7 @@ namespace AutoTestSuite
 		{
 			WebTest((driver) => {
 				driver.GoToHomePage();
-			});
+			}, "AutoTestSuite");
 		}
 
 		[Test]
@@ -19,14 +19,14 @@ namespace AutoTestSuite
 		{
 			WebTest((driver) => {
 				driver.GoToTodayDiscounts();
-			});
+			}, "AutoTestSuite");
 		}
 		[Test]
 		public void Xavica()
 		{
 			WebTest((driver) => {
 				driver.GoToXavica();
-			});
+			},"AutoTestSuite");
 		}
 	}
 }

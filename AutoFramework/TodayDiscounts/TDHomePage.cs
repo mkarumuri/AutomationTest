@@ -8,13 +8,9 @@ using OpenQA.Selenium;
 
 namespace AutoFramework.TodayDiscounts
 {
-	public class HomePage : BasePage
+	public class TDHomePage : BasePage
 	{
-		public HomePage(IWebDriver driver) : base(driver) { }
-
-		//public IWebElement Title()
-		//{
-		//	return Driver.FindElement();
-		//}
+		public TDHomePage(IWebDriver driver) : base(driver) { }
+		
 	}
 }

@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using AutoFramework.TodayDiscounts;
+using AutoFramework.Xavica;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -99,7 +101,7 @@ namespace AutoFramework.Helpers
 		{
 			return (IWebElement)((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
 		}
-		
+
 		public static IWebElement WaitForElement(this IWebDriver driver, By elementSelector)
 		{
 			IWebElement element = null;
@@ -131,13 +133,13 @@ namespace AutoFramework.Helpers
 
 		public static void LowerImplicitWaitTimeoutForNegativeAssertions(this IWebDriver driver)
 		{
-			driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromMilliseconds(0));
+			driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMilliseconds(0);
 		}
 
 		public static void SetTimeoutsToDefaults(this IWebDriver driver)
 		{
-			driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-			driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(90));
+			driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+			driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(90);
 		}
 
 		public static void ScriptExecute(this IWebDriver driver, string script, params object[] args)
@@ -170,7 +172,7 @@ namespace AutoFramework.Helpers
 				result = driver.ScriptQuery<bool>(script, args);
 			} while (result == false);
 		}
-		
+
 		private static IAlert AlertIsPresent(this IWebDriver driver)
 		{
 			try
@@ -194,7 +196,7 @@ namespace AutoFramework.Helpers
 
 			return new HomePage(driver);
 		}
-		public static TodayDiscounts.HomePage GoToTodayDiscounts(this IWebDriver driver)
+		public static TDHomePage GoToTodayDiscounts(this IWebDriver driver)
 		{
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl);
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl + string.Format(TDConstants.LeftMenu, TDConstants.Products.Laptops, TDConstants.Products.Laptops));
@@ -213,9 +215,9 @@ namespace AutoFramework.Helpers
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl + string.Format(TDConstants.LeftMenu, TDConstants.Products.Furniture, TDConstants.Products.Furniture));
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl + string.Format(TDConstants.LeftMenu, TDConstants.Products.GamesConsoles, "Games & Consoles"));
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl + string.Format(TDConstants.LeftMenu, TDConstants.Products.ToysKids, "Toys & Kids"));
-			return new TodayDiscounts.HomePage(driver);
+			return new TDHomePage(driver);
 		}
-		public static Xavica.HomePage GoToXavica(this IWebDriver driver)
+		public static XavHomePage GoToXavica(this IWebDriver driver)
 		{
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl);
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl + "/#about");
@@ -231,9 +233,9 @@ namespace AutoFramework.Helpers
 			driver.Navigate().GoToUrl(string.Format(AppConfig.BaseUrl + "/#" + XavConstants.path.Blogs));
 			driver.Navigate().GoToUrl(string.Format(AppConfig.BaseUrl + "/#" + XavConstants.path.teampage));
 			driver.Navigate().GoToUrl(string.Format(AppConfig.BaseUrl + "/#" + XavConstants.path.contactus));
-			return new Xavica.HomePage(driver);
+			return new XavHomePage(driver);
 		}
-		
+
 	}
 
 	public enum ExpectedCondition
