@@ -66,5 +66,20 @@ namespace AutoFramework.Helpers
 
 			return new PZHomePage(driver);
 		}
+
+		public static PZHomePage GoToAddProperty(this IWebDriver driver, string urlPart)
+		{
+			driver.Navigate().GoToUrl(string.Format("{0}{1}", AppConfig.BaseUrl, urlPart));
+			var loginPage = new PZLoginPage(driver);
+			loginPage.ClickAddProperty();
+			return new PZHomePage(driver);
+		}
+		public static PZHomePage GoToAddPropertyDetails(this IWebDriver driver, string urlPart, string title, string fullName, string propertyType, string address1, string address2, string city, string pincode, string state, string landmark, string latitude, string longitude, string contactName, string contactNumber)
+		{
+			driver.Navigate().GoToUrl(string.Format("{0}{1}", AppConfig.BaseUrl, urlPart));
+			var loginPage = new PZLoginPage(driver);
+			loginPage.ClickAddPropertyDetails(title,fullName,propertyType,address1,address2,city,pincode,state,landmark,latitude,longitude,contactName,contactNumber);
+			return new PZHomePage(driver);
+		}
 	}
 }

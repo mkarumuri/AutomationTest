@@ -106,5 +106,23 @@ namespace ProzyleTestSuite
 				Assert.IsTrue(homePage.Title().Displayed);
 			});
 		}
+
+		[Test]
+		public void TestAddProperty()
+		{
+			WebTest((driver) =>
+			{
+				var homePage = new PZHomePage(driver);
+				TestLogin(driver, homePage);
+
+				driver.GoToAddProperty("/wpweb/#/customer-landing-page");
+				Assert.AreEqual("ADD PROPERTY", homePage.AddPropertyTabTitle.Text, "Add Property Tab Title do not match");
+
+				driver.GoToAddPropertyDetails("/wpweb/#/addproperty","Home","Test","Land","Test","","Test","4444","Telangana","","","","Test","123456789012");
+				Assert.AreEqual("Land -- BASIC - 500 INR , ADDITIONALLY EACH ADD ONS COSTS 50 INR.", homePage.ChecklistHeader.Text, "Checklist Tab Title do not match");
+
+				TestLogout(driver, homePage);
+			}); 
+		}
 	}
 }

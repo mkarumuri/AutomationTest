@@ -51,5 +51,13 @@ namespace AutoFramework.Prozyle
 		{
 			get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div[1]/h2")); }
 		}
+		public IWebElement AddPropertyTabTitle
+		{
+			get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/compose/ul/li[1]/a")); }
+		}
+		public IWebElement ChecklistHeader
+		{
+			get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div[2]/div[1]/h4")); }
+		}
 	}
 }

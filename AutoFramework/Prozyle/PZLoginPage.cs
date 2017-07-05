@@ -7,6 +7,7 @@ namespace AutoFramework.Prozyle
 {
 	public class PZLoginPage : BasePage
 	{
+		#region properties
 		public PZLoginPage(IWebDriver driver) : base(driver) { }
 
 		public IWebElement UserId
@@ -21,7 +22,7 @@ namespace AutoFramework.Prozyle
 
 		public IWebElement LogIn
 		{
-			get { return Driver.Find(By.XPath("//*[@id='l-login']/div[3]/span[1]/button"), ExpectedCondition.Clickable); }			// //*[@id="l-login"]/div[3]/span[1]/button
+			get { return Driver.Find(By.XPath("//*[@id='l-login']/div[3]/span[1]/button"), ExpectedCondition.Clickable); }          // //*[@id="l-login"]/div[3]/span[1]/button
 		}
 		public IWebElement LogOut
 		{
@@ -49,6 +50,73 @@ namespace AutoFramework.Prozyle
 		{
 			get { return Driver.Find(By.XPath("//*[@id='sidebar']/div/div/ul/li[4]/a"), ExpectedCondition.Clickable); }
 		}
+
+		#endregion
+		#region "Add Property"
+		public IWebElement AddPropertyLink
+		{
+			get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div[1]/div/div/a"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement PropertyTitle
+		{
+			get { return Driver.Find(By.Id("title"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement PropertyHolderFullName
+		{
+			get { return Driver.Find(By.Id("holderName"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement PropertyType
+		{
+			get { return Driver.Find(By.Id("propertyTypeId"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement PropertyAddress1
+		{
+			get { return Driver.Find(By.Id("addressLine1"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement PropertyAddress2
+		{
+			get { return Driver.Find(By.Id("addressLine2"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement PropertyCity
+		{
+			get { return Driver.Find(By.Id("city"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement PropertyPincode
+		{
+			get { return Driver.Find(By.Id("pincode"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement PropertyState
+		{
+			get { return Driver.Find(By.Id("state"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement PropertyLandMark
+		{
+			get { return Driver.Find(By.Id("landmark"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement PropertyLatitude
+		{
+			get { return Driver.Find(By.Id("latitude"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement PropertyLongitude
+		{
+			get { return Driver.Find(By.Id("longitude"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement PropertyContactName
+		{
+			get { return Driver.Find(By.Id("contactName"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement PropertyContactNumber
+		{
+			get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/div/div[2]/div[2]/div/div/dl[2]/dd/div/div[2]/input"), ExpectedCondition.Clickable); }
+		}
+		public IWebElement ClickAddPropertyBtn
+		{
+			get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/div/div[3]/a"), ExpectedCondition.Clickable); }
+		}
+		#endregion
+
+		#region Methods
+
 		//Method created to Log into Prozyle
 		public PZHomePage Login(string userName, string password)
 		{
@@ -92,6 +160,33 @@ namespace AutoFramework.Prozyle
 			PropertiesInformationLink.Click();
 			return new PZHomePage(Driver);
 		}
+		public PZHomePage ClickAddProperty()
+		{
+			Thread.Sleep(500);
+			AddPropertyLink.Click();
+			return new PZHomePage(Driver);
+		}
+		public PZHomePage ClickAddPropertyDetails(string title,string fullName, string propertyType,string address1,string address2, string city, string pincode, string state, string landmark, string latitude,string longitude, string contactName, string contactNumber)
+		{
+			Thread.Sleep(500);
+			PropertyTitle.SendKeys(title);
+			PropertyHolderFullName.SendKeys(fullName);
+			PropertyType.SendKeys(propertyType);
+			PropertyAddress1.SendKeys(address1);
+			PropertyAddress2.SendKeys(address2);
+			PropertyCity.SendKeys(city);
+			PropertyPincode.SendKeys(pincode);
+			PropertyState.SendKeys(state);
+			PropertyLandMark.SendKeys(landmark);
+			PropertyLatitude.SendKeys(latitude);
+			PropertyLongitude.SendKeys(longitude);
+			PropertyContactName.SendKeys(contactName);
+			PropertyContactNumber.SendKeys(contactNumber);
+			ClickAddPropertyBtn.Click();
+			return new PZHomePage(Driver);
+		}
+
+		#endregion
 	}
 	public class PZRegisterPage : BasePage
 	{
