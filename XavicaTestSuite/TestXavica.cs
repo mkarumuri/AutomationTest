@@ -3,8 +3,12 @@ using AutoFramework.Helpers;
 using AutoFramework.Xavica;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AutoTestSuite
+namespace XavicaTestSuite
 {
 	public class TestXavica : TestBase
 	{
@@ -42,22 +46,22 @@ namespace AutoTestSuite
 		public void TestContactPage()
 		{
 			WebTest((driver) =>
-				{
-					var homePage = new XavHomePage(driver);
+			{
+				var homePage = new XavHomePage(driver);
 
-					driver.GoToHome();
-					driver.GoToContact();
-					homePage.ClickTwitter();
-					var browserTabs = driver.WindowHandles;
-					driver.SwitchTo().Window(browserTabs[1]);				
+				driver.GoToHome();
+				driver.GoToContact();
+				homePage.ClickTwitter();
+				var browserTabs = driver.WindowHandles;
+				driver.SwitchTo().Window(browserTabs[1]);
 
-					Console.WriteLine("New Window Title: " + driver.Title);
+				Console.WriteLine("New Window Title: " + driver.Title);
 
-					Assert.AreEqual("Xavica Services (@xavicaservices) | Twitter", driver.Title);
+				Assert.AreEqual("Xavica Services (@xavicaservices) | Twitter", driver.Title);
 
-					driver.Close();
-					driver.SwitchTo().Window(browserTabs[0]);
-				});
+				driver.Close();
+				driver.SwitchTo().Window(browserTabs[0]);
+			});
 		}
 	}
 }
