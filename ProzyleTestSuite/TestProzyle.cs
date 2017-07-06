@@ -68,7 +68,7 @@ namespace ProzyleTestSuite
 				TestLogin(driver, homePage);
 				CheckSideMenu(driver, homePage);
 				TestLogout(driver, homePage);
-			});
+			}, "ProzyleTestSuite");
 		}
 
 		private static void CheckSideMenu(OpenQA.Selenium.IWebDriver driver, PZHomePage homePage)
@@ -111,7 +111,7 @@ namespace ProzyleTestSuite
 
 		//		driver.GoToProzyleRegister("wpweb/#/user-registration", "Test", "Test", "spmamidi@gmail.com", "spmamidi@gmail.com", "Pr0zy!eTest", "Pr0zy!eTest", "United states", "5129219933");
 		//		Assert.IsTrue(homePage.Title().Displayed);
-		//	});
+		//	},"ProzyleTestSuite");
 		//}
 
 		[Test]
@@ -131,7 +131,7 @@ namespace ProzyleTestSuite
 				Assert.AreEqual("Land -- BASIC - 500 INR , ADDITIONALLY EACH ADD ONS COSTS 50 INR.", homePage.ChecklistHeader.Text, "Checklist Tab Title do not match");
 
 				TestLogout(driver, homePage);
-			});
+			}, "ProzyleTestSuite");
 		}
 
 		private static void CheckAddPropertyValidations(OpenQA.Selenium.IWebDriver driver, PZHomePage homePage)

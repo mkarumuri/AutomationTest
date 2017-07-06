@@ -21,7 +21,7 @@ namespace XavicaTestSuite
 			WebTest((driver) =>
 			{
 				driver.GoToXavica();
-			});
+			}, "XavicaTestSuite");
 		}
 
 		/// <summary>
@@ -36,7 +36,7 @@ namespace XavicaTestSuite
 
 				driver.GoToHome();
 				Assert.IsTrue(homePage.Title().Displayed);
-			});
+			}, "XavicaTestSuite");
 		}
 
 		/// <summary>
@@ -61,7 +61,7 @@ namespace XavicaTestSuite
 
 				driver.Close();
 				driver.SwitchTo().Window(browserTabs[0]);
-			});
+			}, "XavicaTestSuite");
 		}
 	}
 }

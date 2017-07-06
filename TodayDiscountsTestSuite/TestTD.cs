@@ -18,7 +18,7 @@ namespace TodayDiscountsTestSuite
 			WebTest((driver) =>
 			{
 				driver.GoToTodayDiscounts();
-			}, "AutoTestSuite");
+			}, "TodayDiscountsTestSuite");
 		}
 	}
 }
