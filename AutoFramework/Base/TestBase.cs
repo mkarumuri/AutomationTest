@@ -1,17 +1,11 @@
-﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium.IE;
+﻿using AutoFramework.Helpers;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using NUnit.Framework;
-using OpenQA.Selenium.Remote;
-using AutoFramework.Helpers;
+using OpenQA.Selenium.IE;
+using System;
+using System.Diagnostics;
+using System.IO;
 
 namespace AutoFramework.Base
 {

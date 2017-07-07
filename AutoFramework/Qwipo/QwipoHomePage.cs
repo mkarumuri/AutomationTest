@@ -1,5 +1,4 @@
 ﻿using AutoFramework.Base;
-using AutoFramework.Helpers;
 using OpenQA.Selenium;
 
 namespace AutoFramework.Qwipo
