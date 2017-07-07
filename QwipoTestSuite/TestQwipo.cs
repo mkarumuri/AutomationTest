@@ -1,20 +1,22 @@
-﻿namespace QwipoTestSuite
+﻿using AutoFramework.Base;
+using AutoFramework.Helpers;
+using AutoFramework.Qwipo;
+using NUnit.Framework;
+
+namespace QwipoTestSuite
 {
-	public class TestQwipo 
+	public class TestQwipo : TestBase
 	{
-		//[Test]
-		//public void TestHomePage()
-		//{
-		//	//WebTest((driver) =>
-		//	//{
-		//	//	var homePage = new PZHomePage(driver);
-		//	//	CheckValidations(driver, homePage);
-		//	//	TestLogin(driver, homePage);
-		//	//});
-		//	WebTest((driver) =>
-		//	{
-		//		var homePage = new QwipoHomePage(driver);
-		//	}, "QwipoTestSuite");
-		//}
+		[Test]
+		public void TestHomePage()
+		{
+			WebTest((driver) =>
+			{
+				var homePage = new QwipoHomePage(driver);
+
+				driver.GoToQwipoHome();
+				Assert.IsTrue(homePage.Title().Displayed);
+			}, "QwipoTestSuite");
+		}
 	}
 }

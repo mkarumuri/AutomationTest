@@ -7,5 +7,10 @@ namespace AutoFramework.Qwipo
 	{
 		public QwipoHomePage(IWebDriver driver) : base(driver) { }
 
+		public IWebElement Title()
+		{
+			return Driver.FindElement(By.XPath("/html/body/header/div[1]"));
+		}
+
 	}
 }

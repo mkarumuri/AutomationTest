@@ -61,6 +61,7 @@
     <Compile Include="Helpers\AppConfig.cs" />
     <Compile Include="Helpers\IWebDriverExtensions.cs" />
     <Compile Include="Helpers\ProzyleWDExtensions.cs" />
+    <Compile Include="Helpers\QpWDExtensions.cs" />
     <Compile Include="Helpers\TDConstants.cs" />
     <Compile Include="Helpers\TDWDExtenstions.cs" />
     <Compile Include="Helpers\TimingHelper.cs" />
