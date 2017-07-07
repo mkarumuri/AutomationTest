@@ -99,5 +99,34 @@ namespace TodayDiscountsTestSuite
 			driver.GoToLeftMenu(TDConstants.Products.ToysKids.ToString(), "Toys & Kids");
 			Assert.AreEqual("Toys", homePage.sideMenu.Text, "ToysKids Failed");
 		}
+
+		[Test]
+		public void TestItem()
+		{
+			WebTest((driver) =>
+			{
+				var homePage = new TDHomePage(driver);
+
+				//Test Tablet Second Item
+				driver.GoToLeftMenu(TDConstants.Products.Tablets.ToString(), TDConstants.Products.Tablets.ToString());
+				homePage.ClickItem();
+
+				var browserTabs = driver.WindowHandles;
+				driver.SwitchTo().Window(browserTabs[1]);
+				Assert.IsTrue(driver.SwitchTo().Window(browserTabs[1]).Title.Contains(driver.Title));
+				//driver.Close();
+				driver.SwitchTo().Window(browserTabs[0]);
+
+				//Test Mobile Second Item
+				driver.GoToLeftMenu(TDConstants.Products.Mobiles.ToString(), TDConstants.Products.Mobiles.ToString());
+				homePage.ClickItem();
+
+				//driver.SwitchTo().Window(browserTabs[1]);
+				Assert.IsTrue(driver.SwitchTo().Window(browserTabs[1]).Title.Contains(driver.Title));
+				driver.Close();
+				driver.SwitchTo().Window(browserTabs[0]);
+
+			}, "TodayDiscountsTestSuite");
+		}
 	}
 }

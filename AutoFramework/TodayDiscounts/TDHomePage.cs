@@ -24,5 +24,13 @@ namespace AutoFramework.TodayDiscounts
 		{
 			get { return Driver.Find(By.XPath("//*[@id='main']/div/div/div/div/div/h6")); } 
 		}
+
+		public TDHomePage ClickItem()
+		{
+			var elem = Driver.FindElement(By.XPath("//*[@id='main']/div/div/div/div/div/div[2]/div/div[2]/a")); // second item path			
+			Driver.MoveMouseTo(elem);
+			elem.Click();
+			return new TDHomePage(Driver);
+		}
 	}
 }
