@@ -96,7 +96,7 @@ namespace ProzyleTestSuite
 
 				driver.GoToForgotPassword("mani.karumuri@gmail.com", "/wpweb/#/user-login");
 				Assert.AreEqual("Email sent", homePage.passwordEmailSent.Text);
-			});
+			}, "ProzyleTestSuite");
 		}
 
 		/// <summary>

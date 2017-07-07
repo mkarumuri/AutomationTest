@@ -120,7 +120,7 @@ namespace AutoFramework.Prozyle
 		//Method created to Log into Prozyle
 		public PZHomePage Login(string userName, string password)
 		{
-			Thread.Sleep(500);
+			Thread.Sleep(1000);
 			UserId.SendKeys(userName);
 			Password.SendKeys(password);
 			LogIn.Click();

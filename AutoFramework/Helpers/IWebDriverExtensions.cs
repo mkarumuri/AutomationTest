@@ -210,7 +210,7 @@ namespace AutoFramework.Helpers
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl + string.Format(TDConstants.LeftMenu, TDConstants.Products.LuggageBags, "Luggage & Bags"));
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl + string.Format(TDConstants.LeftMenu, TDConstants.Products.MensFashion, "Men's Fashion"));
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl + string.Format(TDConstants.LeftMenu, TDConstants.Products.WomensFashion, "Women's Fashion"));
-			driver.Navigate().GoToUrl(AppConfig.BaseUrl + string.Format(TDConstants.LeftMenu, TDConstants.Products.Books, TDConstants.Products.Books));
+			//driver.Navigate().GoToUrl(AppConfig.BaseUrl + string.Format(TDConstants.LeftMenu, TDConstants.Products.Books, TDConstants.Products.Books));
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl + string.Format(TDConstants.LeftMenu, TDConstants.Products.MusicalInstruments, "Musical Instruments"));
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl + string.Format(TDConstants.LeftMenu, TDConstants.Products.Furniture, TDConstants.Products.Furniture));
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl + string.Format(TDConstants.LeftMenu, TDConstants.Products.GamesConsoles, "Games & Consoles"));
