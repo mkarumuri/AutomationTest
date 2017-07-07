@@ -10,10 +10,11 @@ namespace AutoFramework.Helpers
 			driver.Navigate().GoToUrl(AppConfig.BaseUrl);
 			return new XavHomePage(driver);
 		}
-
-		public static XavHomePage GoToContact(this IWebDriver driver)
+		public static XavHomePage GoToContact(this IWebDriver driver, string name, string email, string message,string btnAction)
 		{
 			driver.Navigate().GoToUrl(string.Format(AppConfig.BaseUrl + "/#" + XavConstants.path.contactus));
+			var homePage = new XavHomePage(driver);
+			homePage.GoToContact(name, email, message,btnAction);
 			return new XavHomePage(driver);
 		}
 	}
