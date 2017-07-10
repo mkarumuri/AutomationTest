@@ -28,7 +28,6 @@ namespace AutoFramework.Prozyle
 		{
 			get { return Driver.Find(By.XPath("//*[@id='l-login']/div[1]/div/span[2]")); }// //*[@id="l-login"]/div[1]/div/span[2]
 		}
-		// 
 		public IWebElement passwordEmailSent
 		{
 			get { return Driver.Find(By.XPath("/html/body/div[4]/h2")); }// /html/body/div[4]/h2
@@ -52,9 +51,7 @@ namespace AutoFramework.Prozyle
 		public IWebElement AddPropertyTabTitle
 		{
 			get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div/div/div/compose/ul/li[1]/a")); }
-		}
-
-		//Add Property page
+		}	
 		public IWebElement ChecklistHeader
 		{
 			get { return Driver.Find(By.XPath("//*[@id='content']/div/div/div[2]/div[1]/h4")); }

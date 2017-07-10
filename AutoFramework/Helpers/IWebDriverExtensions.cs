@@ -1,5 +1,7 @@
 ﻿using AutoFramework.TodayDiscounts;
+using AutoFramework.TodayDiscounts.Constants;
 using AutoFramework.Xavica;
+using AutoFramework.Xavica.Constants;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
@@ -179,7 +181,7 @@ namespace AutoFramework.Helpers
 			{
 				return driver.SwitchTo().Alert();
 			}
-			catch (OpenQA.Selenium.NoAlertPresentException)
+			catch (NoAlertPresentException)
 			{
 				return null;
 			}

@@ -1,6 +1,7 @@
 ﻿using AutoFramework.Base;
 using AutoFramework.Helpers;
 using AutoFramework.TodayDiscounts;
+using AutoFramework.TodayDiscounts.Constants;
 using NUnit.Framework;
 
 namespace TodayDiscountsTestSuite

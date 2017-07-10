@@ -1,4 +1,5 @@
 ﻿using AutoFramework.Xavica;
+using AutoFramework.Xavica.Constants;
 using OpenQA.Selenium;
 
 namespace AutoFramework.Helpers

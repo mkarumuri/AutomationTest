@@ -1,4 +1,5 @@
 ﻿using AutoFramework.TodayDiscounts;
+using AutoFramework.TodayDiscounts.Constants;
 using OpenQA.Selenium;
 
 namespace AutoFramework.Helpers

@@ -1,4 +1,4 @@
-﻿namespace AutoFramework.Helpers
+﻿namespace AutoFramework.TodayDiscounts.Constants
 {
 	public class TDConstants
 	{

@@ -62,11 +62,13 @@
     <Compile Include="Helpers\IWebDriverExtensions.cs" />
     <Compile Include="Helpers\ProzyleWDExtensions.cs" />
     <Compile Include="Helpers\QpWDExtensions.cs" />
-    <Compile Include="Helpers\TDConstants.cs" />
+    <Compile Include="TodayDiscounts\Constants\TDConstants.cs" />
     <Compile Include="Helpers\TDWDExtenstions.cs" />
     <Compile Include="Helpers\TimingHelper.cs" />
-    <Compile Include="Helpers\XavConstants.cs" />
+    <Compile Include="Xavica\Constants\XavConstants.cs" />
     <Compile Include="Helpers\XavWDExtensions.cs" />
+    <Compile Include="Prozyle\Constants\PageNameConstants.cs" />
+    <Compile Include="Prozyle\Customer.cs" />
     <Compile Include="Prozyle\PZHomePage.cs" />
     <Compile Include="Prozyle\PZLoginPage.cs" />
     <Compile Include="Qwipo\QwipoHomePage.cs" />

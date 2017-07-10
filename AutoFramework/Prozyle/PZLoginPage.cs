@@ -14,12 +14,10 @@ namespace AutoFramework.Prozyle
 		{
 			get { return Driver.Find(By.Id("username"), ExpectedCondition.Clickable); }
 		}
-
 		public IWebElement Password
 		{
 			get { return Driver.Find(By.Id("password"), ExpectedCondition.Clickable); }
 		}
-
 		public IWebElement LogIn
 		{
 			get { return Driver.Find(By.XPath("//*[@id='l-login']/div[3]/span[1]/button"), ExpectedCondition.Clickable); }          // //*[@id="l-login"]/div[3]/span[1]/button
@@ -28,12 +26,10 @@ namespace AutoFramework.Prozyle
 		{
 			get { return Driver.Find(By.XPath("//*[@id='header']/ul/li[4]/ul/li[2]/a"), ExpectedCondition.Clickable); }
 		}
-
 		public IWebElement ForgotPassword
 		{
 			get { return Driver.Find(By.XPath("//*[@id='l-login']/div[3]/span[2]/a"), ExpectedCondition.Clickable); }
 		}
-
 		public IWebElement SendButton
 		{
 			get { return Driver.Find(By.XPath("//*[@id='l-forget-password']/button"), ExpectedCondition.Clickable); }
@@ -133,7 +129,6 @@ namespace AutoFramework.Prozyle
 			LogOut.Click();
 			return new PZHomePage(Driver);
 		}
-
 		public PZHomePage ClickForgotPassword(string userName)
 		{
 			Thread.Sleep(500);
@@ -166,26 +161,25 @@ namespace AutoFramework.Prozyle
 			AddPropertyLink.Click();
 			return new PZHomePage(Driver);
 		}
-		public PZHomePage ClickAddPropertyDetails(string title,string fullName, string propertyType,string address1,string address2, string city, string pincode, string state, string landmark, string latitude,string longitude, string contactName, string contactNumber)
+		public PZHomePage ClickAddPropertyDetails(Customer customer)
 		{
 			Thread.Sleep(500);
-			PropertyTitle.SendKeys(title);
-			PropertyHolderFullName.SendKeys(fullName);
-			PropertyType.SendKeys(propertyType);
-			PropertyAddress1.SendKeys(address1);
-			PropertyAddress2.SendKeys(address2);
-			PropertyCity.SendKeys(city);
-			PropertyPincode.SendKeys(pincode);
-			PropertyState.SendKeys(state);
-			PropertyLandMark.SendKeys(landmark);
-			PropertyLatitude.SendKeys(latitude);
-			PropertyLongitude.SendKeys(longitude);
-			PropertyContactName.SendKeys(contactName);
-			PropertyContactNumber.SendKeys(contactNumber);
+			PropertyTitle.SendKeys(customer.Title);
+			PropertyHolderFullName.SendKeys(customer.FullName);
+			PropertyType.SendKeys(customer.PropertyType);
+			PropertyAddress1.SendKeys(customer.Address1);
+			PropertyAddress2.SendKeys(customer.Address2);
+			PropertyCity.SendKeys(customer.City);
+			PropertyPincode.SendKeys(customer.Pincode);
+			PropertyState.SendKeys(customer.State);
+			PropertyLandMark.SendKeys(customer.Landmark);
+			PropertyLatitude.SendKeys(customer.Latitude);
+			PropertyLongitude.SendKeys(customer.Longitude);
+			PropertyContactName.SendKeys(customer.ContactName);
+			PropertyContactNumber.SendKeys(customer.ContactNumber);
 			ClickAddPropertyBtn.Click();
 			return new PZHomePage(Driver);
 		}
-
 		#endregion
 	}
 	public class PZRegisterPage : BasePage
@@ -196,7 +190,6 @@ namespace AutoFramework.Prozyle
 		{
 			get { return Driver.Find(By.Id("firstName"), ExpectedCondition.Clickable); }
 		}
-
 		public IWebElement LastName
 		{
 			get { return Driver.Find(By.Id("lastName"), ExpectedCondition.Clickable); }
@@ -225,7 +218,6 @@ namespace AutoFramework.Prozyle
 		{
 			get { return Driver.Find(By.CssSelector("#l-login > div:nth-child(5) > div:nth-child(1) > div > select > option:nth-child(16)"), ExpectedCondition.Clickable); } //option 16 is united states
 		}
-
 		public IWebElement SignUp
 		{
 			get { return Driver.Find(By.Id("signUp"), ExpectedCondition.Clickable); }
@@ -246,6 +238,5 @@ namespace AutoFramework.Prozyle
 			SignUp.Click();
 			return new PZRegisterPage(Driver);
 		}
-
 	}
 }

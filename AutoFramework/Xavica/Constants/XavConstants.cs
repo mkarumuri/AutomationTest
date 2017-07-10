@@ -1,8 +1,7 @@
-﻿namespace AutoFramework.Helpers
+﻿namespace AutoFramework.Xavica.Constants
 {
 	public class XavConstants
 	{
-
 		public enum path
 		{
 			home = 1,

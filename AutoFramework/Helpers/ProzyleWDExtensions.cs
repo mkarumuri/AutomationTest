@@ -5,7 +5,7 @@ namespace AutoFramework.Helpers
 {
 	public static class ProzyleWDExtensions
 	{
-		public static PZHomePage GoToProzyleHome(this IWebDriver driver, string userName, string password, string urlPart)
+		public static PZHomePage GoToProzyleHome(this IWebDriver driver, string urlPart, string userName, string password)
 		{
 			driver.Navigate().GoToUrl(string.Format("{0}{1}", AppConfig.BaseUrl, urlPart));
 			var loginPage = new PZLoginPage(driver);
@@ -74,11 +74,11 @@ namespace AutoFramework.Helpers
 			loginPage.ClickAddProperty();
 			return new PZHomePage(driver);
 		}
-		public static PZHomePage GoToAddPropertyDetails(this IWebDriver driver, string urlPart, string title, string fullName, string propertyType, string address1, string address2, string city, string pincode, string state, string landmark, string latitude, string longitude, string contactName, string contactNumber)
+		public static PZHomePage GoToAddPropertyDetails(this IWebDriver driver, string urlPart, Customer customer)
 		{
 			driver.Navigate().GoToUrl(string.Format("{0}{1}", AppConfig.BaseUrl, urlPart));
 			var loginPage = new PZLoginPage(driver);
-			loginPage.ClickAddPropertyDetails(title,fullName,propertyType,address1,address2,city,pincode,state,landmark,latitude,longitude,contactName,contactNumber);
+			loginPage.ClickAddPropertyDetails(customer);
 			return new PZHomePage(driver);
 		}
 	}
