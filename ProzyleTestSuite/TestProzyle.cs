@@ -85,7 +85,202 @@ namespace ProzyleTestSuite
 
 				CheckAddPropertyValidations(driver, homePage);
 
-				IList<Customer> customers = new List<Customer>(){
+				//IList<Customer> customers = new List<Customer>(){
+				//	new Customer()
+				//	{
+				//		Title = "Home",
+				//		FullName = "Test",
+				//		PropertyType = "Land",
+				//		Address1 = "Test",
+				//		Address2 = "",
+				//		City = "Test",
+				//		Pincode = "4444",
+				//		State = "Telangana",
+				//		Landmark = "",
+				//		Latitude = "",
+				//		Longitude = "",
+				//		ContactName = "Test",
+				//		ContactNumber = "123456789012"
+				//	}
+				//};
+				//IList<Tuple<string, string, string>> asserts = new List<Tuple<string, string, string>>()
+				//{
+				//	new Tuple<string, string, string>("Land -- BASIC - 500 INR , ADDITIONALLY EACH ADD ONS COSTS 50 INR.", homePage.ChecklistHeader.Text, "Checklist Tab Title do not match")
+				//};
+
+				//ExecuteAddPropertyAsserts(driver, customers, asserts);
+
+				TestLogout(driver, homePage);
+			}, "ProzyleTestSuite");
+		}
+
+		#region "Properties"
+		private IList<Customer> Customers
+		{
+			get
+			{
+				IList<Customer> customers = new List<Customer>()
+				{
+					new Customer()
+					{
+						Title = "",
+						FullName = "Test",
+						PropertyType = "Land",
+						Address1 = "Test",
+						Address2 = "",
+						City = "Test",
+						Pincode = "4444",
+						State = "Telangana",
+						Landmark = "",
+						Latitude = "",
+						Longitude = "",
+						ContactName = "Test",
+						ContactNumber = "123456789012"
+					},
+					new Customer()
+					{
+						Title = "Test",
+						FullName = "",
+						PropertyType = "Land",
+						Address1 = "Test",
+						Address2 = "",
+						City = "Test",
+						Pincode = "4444",
+						State = "Telangana",
+						Landmark = "",
+						Latitude = "",
+						Longitude = "",
+						ContactName = "Test",
+						ContactNumber = "123456789012"
+					},
+					new Customer()
+					{
+						Title = "Test",
+						FullName = "Test",
+						PropertyType = "",
+						Address1 = "Test",
+						Address2 = "",
+						City = "Test",
+						Pincode = "4444",
+						State = "Telangana",
+						Landmark = "",
+						Latitude = "",
+						Longitude = "",
+						ContactName = "Test",
+						ContactNumber = "123456789012"
+					},
+					new Customer()
+					{
+						Title = "Test",
+						FullName = "Test",
+						PropertyType = "Land",
+						Address1 = "",
+						Address2 = "",
+						City = "Test",
+						Pincode = "4444",
+						State = "Telangana",
+						Landmark = "",
+						Latitude = "",
+						Longitude = "",
+						ContactName = "Test",
+						ContactNumber = "123456789012"
+					},
+					new Customer()
+					{
+						Title = "Test",
+						FullName = "Test",
+						PropertyType = "Land",
+						Address1 = "Test",
+						Address2 = "",
+						City = "",
+						Pincode = "4444",
+						State = "Telangana",
+						Landmark = "",
+						Latitude = "",
+						Longitude = "",
+						ContactName = "Test",
+						ContactNumber = "123456789012"
+					},
+					new Customer()
+					{
+						Title = "Test",
+						FullName = "Test",
+						PropertyType = "Land",
+						Address1 = "Test",
+						Address2 = "",
+						City = "Test",
+						Pincode = "",
+						State = "Telangana",
+						Landmark = "",
+						Latitude = "",
+						Longitude = "",
+						ContactName = "Test",
+						ContactNumber = "123456789012"
+					},
+					new Customer()
+					{
+						Title = "Test",
+						FullName = "Test",
+						PropertyType = "Land",
+						Address1 = "Test",
+						Address2 = "",
+						City = "Test",
+						Pincode = "Test",
+						State = "Telangana",
+						Landmark = "",
+						Latitude = "",
+						Longitude = "",
+						ContactName = "Test",
+						ContactNumber = "123456789012"
+					},
+					new Customer()
+					{
+						Title = "Test",
+						FullName = "Test",
+						PropertyType = "Land",
+						Address1 = "Test",
+						Address2 = "",
+						City = "Test",
+						Pincode = "4444",
+						State = "",
+						Landmark = "",
+						Latitude = "",
+						Longitude = "",
+						ContactName = "Test",
+						ContactNumber = "123456789012"
+					},
+					new Customer()
+					{
+						Title = "Test",
+						FullName = "Test",
+						PropertyType = "Land",
+						Address1 = "Test",
+						Address2 = "",
+						City = "Test",
+						Pincode = "4444",
+						State = "Telangana",
+						Landmark = "",
+						Latitude = "",
+						Longitude = "",
+						ContactName = "Test",
+						ContactNumber = "1234567890123"
+					},
+					new Customer()
+					{
+						Title = "Test",
+						FullName = "Test",
+						PropertyType = "Land",
+						Address1 = "Test",
+						Address2 = "",
+						City = "Test",
+						Pincode = "4444",
+						State = "Telangana",
+						Landmark = "",
+						Latitude = "",
+						Longitude = "",
+						ContactName = "Test",
+						ContactNumber = "test"
+					},
 					new Customer()
 					{
 						Title = "Home",
@@ -103,190 +298,61 @@ namespace ProzyleTestSuite
 						ContactNumber = "123456789012"
 					}
 				};
-				IList<Tuple<string, string, string>> asserts = new List<Tuple<string, string, string>>()
-				{
-					new Tuple<string, string, string>("Land -- BASIC - 500 INR , ADDITIONALLY EACH ADD ONS COSTS 50 INR.", homePage.ChecklistHeader.Text, "Checklist Tab Title do not match")
-				};
-
-				ExecuteAddPropertyAsserts(driver, customers, asserts);
-
-				TestLogout(driver, homePage);
-			}, "ProzyleTestSuite");
-		}
-
-		#region "Properties"
-		private IList<Customer> Customers
-		{
-			get
-			{
-				IList<Customer> customers = new List<Customer>()
-				{
-						new Customer()
-						{
-							Title = "",
-							FullName = "Test",
-							PropertyType = "Land",
-							Address1 = "Test",
-							Address2 = "",
-							City = "Test",
-							Pincode = "4444",
-							State = "Telangana",
-							Landmark = "",
-							Latitude = "",
-							Longitude = "",
-							ContactName = "Test",
-							ContactNumber = "123456789012"
-						},
-						new Customer()
-						{
-							Title = "Test",
-							FullName = "",
-							PropertyType = "Land",
-							Address1 = "Test",
-							Address2 = "",
-							City = "Test",
-							Pincode = "4444",
-							State = "Telangana",
-							Landmark = "",
-							Latitude = "",
-							Longitude = "",
-							ContactName = "Test",
-							ContactNumber = "123456789012"
-						},
-						new Customer()
-						{
-							Title = "Test",
-							FullName = "Test",
-							PropertyType = "",
-							Address1 = "Test",
-							Address2 = "",
-							City = "Test",
-							Pincode = "4444",
-							State = "Telangana",
-							Landmark = "",
-							Latitude = "",
-							Longitude = "",
-							ContactName = "Test",
-							ContactNumber = "123456789012"
-						},
-						new Customer()
-						{
-							Title = "Test",
-							FullName = "Test",
-							PropertyType = "Land",
-							Address1 = "",
-							Address2 = "",
-							City = "Test",
-							Pincode = "4444",
-							State = "Telangana",
-							Landmark = "",
-							Latitude = "",
-							Longitude = "",
-							ContactName = "Test",
-							ContactNumber = "123456789012"
-						},
-						new Customer()
-						{
-							Title = "Test",
-							FullName = "Test",
-							PropertyType = "Land",
-							Address1 = "Test",
-							Address2 = "",
-							City = "",
-							Pincode = "4444",
-							State = "Telangana",
-							Landmark = "",
-							Latitude = "",
-							Longitude = "",
-							ContactName = "Test",
-							ContactNumber = "123456789012"
-						},
-						new Customer()
-						{
-							Title = "Test",
-							FullName = "Test",
-							PropertyType = "Land",
-							Address1 = "Test",
-							Address2 = "",
-							City = "Test",
-							Pincode = "",
-							State = "Telangana",
-							Landmark = "",
-							Latitude = "",
-							Longitude = "",
-							ContactName = "Test",
-							ContactNumber = "123456789012"
-						},
-						new Customer()
-						{
-							Title = "Test",
-							FullName = "Test",
-							PropertyType = "Land",
-							Address1 = "Test",
-							Address2 = "",
-							City = "Test",
-							Pincode = "Test",
-							State = "Telangana",
-							Landmark = "",
-							Latitude = "",
-							Longitude = "",
-							ContactName = "Test",
-							ContactNumber = "123456789012"
-						},
-						new Customer()
-						{
-							Title = "Test",
-							FullName = "Test",
-							PropertyType = "Land",
-							Address1 = "Test",
-							Address2 = "",
-							City = "Test",
-							Pincode = "Test",
-							State = "",
-							Landmark = "",
-							Latitude = "",
-							Longitude = "",
-							ContactName = "Test",
-							ContactNumber = "123456789012"
-						},
-						new Customer()
-						{
-							Title = "Test",
-							FullName = "Test",
-							PropertyType = "Land",
-							Address1 = "Test",
-							Address2 = "",
-							City = "Test",
-							Pincode = "Test",
-							State = "Telangana",
-							Landmark = "",
-							Latitude = "",
-							Longitude = "",
-							ContactName = "Test",
-							ContactNumber = "1234567890123"
-						},
-						new Customer()
-						{
-							Title = "Test",
-							FullName = "Test",
-							PropertyType = "Land",
-							Address1 = "Test",
-							Address2 = "",
-							City = "Test",
-							Pincode = "Test",
-							State = "Telangana",
-							Landmark = "",
-							Latitude = "",
-							Longitude = "",
-							ContactName = "Test",
-							ContactNumber = "test"
-						}
-				};
 				return customers;
 			}
 		}
-		private IList<Tuple<string, string, string>> GetAddPropertyValidationAsserts(PZHomePage homePage)
+		private Tuple<string, string, string> GetAddPropertyValidationAsserts(PZHomePage homePage, int i)
 		{
+			Tuple<string, string, string> assert = new Tuple<string, string, string>("","","");
+			switch (i)
+			{
+				case 0:
+					assert = new Tuple<string, string, string>(
+					"This information is required", homePage.ReqTitleMessage.Text, "Title should not be empty - Failed");
+					break;
+				case 1:
+					assert = new Tuple<string, string, string>(
+						"This information is required", homePage.ReqHolderNameMessage.Text, "Holder Name should not be empty - Failed");
+					break;
+				case 2:
+					assert = new Tuple<string, string, string>(
+						"This information is required", homePage.ReqTypeMessage.Text, "Property Type should not be empty - Failed");
+					break;
+				case 3:
+					assert = new Tuple<string, string, string>(
+						"This information is required", homePage.ReqAddressMessage.Text, "Address1 should not be empty - Failed");
+					break;
+				case 4:
+					assert = new Tuple<string, string, string>(
+						"This information is required", homePage.ReqCityMessage.Text, "City should not be empty - Failed");
+					break;
+				case 5:
+					assert = new Tuple<string, string, string>(
+						"This information is required", homePage.ReqPinCodeMessage.Text, "PinCode should not be empty - Failed");
+					break;
+				case 6:
+					assert = new Tuple<string, string, string>(
+						"Enter Valid pincode", homePage.ReqValidPinCodeMessage.Text, "PinCode is not Valid - Failed");
+					break;
+				case 7:
+					assert = new Tuple<string, string, string>(
+						"This information is required", homePage.ReqStateMessage.Text, "State should not be empty - Failed");
+					break;
+				case 8:
+					assert = new Tuple<string, string, string>(
+						"Mobile Number(maximum 12 characters)", homePage.ReqMaxContactNumberMessage.Text, "Number max 12 characters - Failed");
+					break;
+				case 9:
+					assert = new Tuple<string, string, string>(
+						"Enter Valid Mobile Number", homePage.ReqValidContactNumberMessage.Text, "Number is not Valid - Failed");
+					break;
+				case 10:
+					assert = new Tuple<string, string, string>(
+						"Land -- BASIC - 500 INR , ADDITIONALLY EACH ADD ONS COSTS 50 INR.", homePage.ChecklistHeader.Text, "Checklist Tab Title do not match");
+					break;
+			}
+			return assert;
+			/*
 			IList<Tuple<string, string, string>> asserts = new List<Tuple<string, string, string>>()
 			{
 				new Tuple<string, string, string>(
@@ -310,7 +376,8 @@ namespace ProzyleTestSuite
 				new Tuple<string, string, string>(
 					"Enter Valid Mobile Number", homePage.ReqValidContactNumberMessage.Text, "Number is not Valid - Failed")
 			};
-			return asserts;
+			return asserts[i];
+			*/
 		}
 		#endregion
 
@@ -361,15 +428,17 @@ namespace ProzyleTestSuite
 
 		private void CheckAddPropertyValidations(IWebDriver driver, PZHomePage homePage)
 		{
-			ExecuteAddPropertyAsserts(driver, Customers, GetAddPropertyValidationAsserts(homePage));
+			ExecuteAddPropertyAsserts(driver, Customers, homePage);
 		}
-		private void ExecuteAddPropertyAsserts(IWebDriver driver, IList<Customer> customers, IList<Tuple<string, string, string>> asserts)
+		private void ExecuteAddPropertyAsserts(IWebDriver driver, IList<Customer> customers, PZHomePage homePage)
 		{
-			int i = 0;
-			foreach (var item in asserts)
+
+			for (int i = 0; i < customers.Count; i++)
 			{
 				driver.GoToAddPropertyDetails(PageNameConstants.AddProperty, customers[i]);
-				Assert.AreEqual(item.Item1, item.Item2, item.Item3);
+
+				Tuple<string, string, string> assert = GetAddPropertyValidationAsserts(homePage, i);
+				Assert.AreEqual(assert.Item1, assert.Item2, assert.Item3);
 				i++;
 			}
 		}
