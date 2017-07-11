@@ -18,6 +18,7 @@ namespace ProzyleTestSuite
 		//	testData.Add(TestScenarios.AddProperty,GetAddPropertyValidationAsserts(
 		//}	
 
+		#region "Test Scenarios"
 		/// <summary>
 		/// Test to Register user
 		/// </summary>
@@ -71,7 +72,6 @@ namespace ProzyleTestSuite
 				Assert.AreEqual("Email sent", homePage.passwordEmailSent.Text);
 			}, "ProzyleTestSuite");
 		}
-
 		[Test]
 		public void TestAddProperty()
 		{
@@ -85,34 +85,10 @@ namespace ProzyleTestSuite
 
 				CheckAddPropertyValidations(driver, homePage);
 
-				//IList<Customer> customers = new List<Customer>(){
-				//	new Customer()
-				//	{
-				//		Title = "Home",
-				//		FullName = "Test",
-				//		PropertyType = "Land",
-				//		Address1 = "Test",
-				//		Address2 = "",
-				//		City = "Test",
-				//		Pincode = "4444",
-				//		State = "Telangana",
-				//		Landmark = "",
-				//		Latitude = "",
-				//		Longitude = "",
-				//		ContactName = "Test",
-				//		ContactNumber = "123456789012"
-				//	}
-				//};
-				//IList<Tuple<string, string, string>> asserts = new List<Tuple<string, string, string>>()
-				//{
-				//	new Tuple<string, string, string>("Land -- BASIC - 500 INR , ADDITIONALLY EACH ADD ONS COSTS 50 INR.", homePage.ChecklistHeader.Text, "Checklist Tab Title do not match")
-				//};
-
-				//ExecuteAddPropertyAsserts(driver, customers, asserts);
-
 				TestLogout(driver, homePage);
 			}, "ProzyleTestSuite");
 		}
+		#endregion
 
 		#region "Properties"
 		private IList<Customer> Customers
@@ -296,14 +272,14 @@ namespace ProzyleTestSuite
 						Longitude = "",
 						ContactName = "Test",
 						ContactNumber = "123456789012"
-					}
+					} //Given all values and redirects to next tab
 				};
 				return customers;
 			}
 		}
 		private Tuple<string, string, string> GetAddPropertyValidationAsserts(PZHomePage homePage, int i)
 		{
-			Tuple<string, string, string> assert = new Tuple<string, string, string>("","","");
+			Tuple<string, string, string> assert = new Tuple<string, string, string>("", "", "");
 			switch (i)
 			{
 				case 0:
@@ -352,32 +328,6 @@ namespace ProzyleTestSuite
 					break;
 			}
 			return assert;
-			/*
-			IList<Tuple<string, string, string>> asserts = new List<Tuple<string, string, string>>()
-			{
-				new Tuple<string, string, string>(
-					"This information is required", homePage.ReqTitleMessage.Text, "Title should not be empty - Failed"),
-				new Tuple<string, string, string>(
-					"This information is required", homePage.ReqHolderNameMessage.Text, "Holder Name should not be empty - Failed"),
-				new Tuple<string, string, string>(
-					"This information is required", homePage.ReqTypeMessage.Text, "Property Type should not be empty - Failed"),
-				new Tuple<string, string, string>(
-					"This information is required", homePage.ReqAddressMessage.Text, "Address1 should not be empty - Failed"),
-				new Tuple<string, string, string>(
-					"This information is required", homePage.ReqCityMessage.Text, "City should not be empty - Failed"),
-				new Tuple<string, string, string>(
-					"This information is required", homePage.ReqPinCodeMessage.Text, "PinCode should not be empty - Failed"),
-				new Tuple<string, string, string>(
-					"Enter Valid pincode", homePage.ReqValidPinCodeMessage.Text, "PinCode is not Valid - Failed"),
-				new Tuple<string, string, string>(
-					"This information is required", homePage.ReqStateMessage.Text, "State should not be empty - Failed"),
-				new Tuple<string, string, string>(
-					"Mobile Number(maximum 12 characters)", homePage.ReqMaxContactNumberMessage.Text, "Number max 12 characters - Failed"),
-				new Tuple<string, string, string>(
-					"Enter Valid Mobile Number", homePage.ReqValidContactNumberMessage.Text, "Number is not Valid - Failed")
-			};
-			return asserts[i];
-			*/
 		}
 		#endregion
 
